@@ -5,7 +5,7 @@ module Facebook
         # The default configuration provider for environment variables.
         class Environment
           def valid_verify_token?(verify_token)
-            verify_token == ENV['VERIFY_TOKEN']
+            verify_token == ENV['FACEBOOK_VERIFY_TOKEN']
           end
 
           # Return String of app secret of Facebook App.
@@ -13,12 +13,12 @@ module Facebook
           # configuration provider class as this app secret is used to
           # validate the incoming requests.
           def app_secret_for(*)
-            ENV['APP_SECRET']
+            ENV['FACEBOOK_SECRET']
           end
 
           # Return String of page access token.
           def access_token_for(*)
-            ENV['ACCESS_TOKEN']
+            ENV['FACEBOOK_ACCESS_TOKEN']
           end
         end
       end

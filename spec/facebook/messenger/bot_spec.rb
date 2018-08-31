@@ -6,9 +6,9 @@ describe Facebook::Messenger::Bot do
   let(:access_token) { 'access token' }
 
   before do
-    ENV['ACCESS_TOKEN'] = access_token
-    ENV['APP_SECRET'] = app_secret
-    ENV['ACCESS_TOKEN'] = access_token
+    ENV['FACEBOOK_VERIFY_TOKEN'] = verify_token
+    ENV['FACEBOOK_SECRET'] = app_secret
+    ENV['FACEBOOK_ACCESS_TOKEN'] = access_token
   end
 
   subject { Facebook::Messenger::Bot }

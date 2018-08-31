@@ -8,7 +8,7 @@ describe Facebook::Messenger::Subscriptions do
   end
 
   before do
-    ENV['ACCESS_TOKEN'] = access_token
+    ENV['FACEBOOK_ACCESS_TOKEN'] = access_token
   end
 
   describe '.subscribe' do

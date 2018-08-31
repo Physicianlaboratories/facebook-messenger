@@ -14,9 +14,9 @@ describe Facebook::Messenger::Server do
   end
 
   before do
-    ENV['VERIFY_TOKEN'] = verify_token
-    ENV['ACCESS_TOKEN'] = access_token
-    ENV['APP_SECRET'] = nil
+    ENV['FACEBOOK_VERIFY_TOKEN'] = verify_token
+    ENV['FACEBOOK_ACCESS_TOKEN'] = access_token
+    ENV['FACEBOOK_SECRET'] = nil
   end
 
   describe 'GET' do
@@ -116,11 +116,11 @@ describe Facebook::Messenger::Server do
 
     context 'integrity check' do
       before do
-        ENV['APP_SECRET'] = app_secret
+        ENV['FACEBOOK_SECRET'] = app_secret
       end
 
       after do
-        ENV['APP_SECRET'] = nil
+        ENV['FACEBOOK_SECRET'] = nil
       end
 
       it 'do not trigger if fails' do
@@ -134,7 +134,7 @@ describe Facebook::Messenger::Server do
 
         signature = OpenSSL::HMAC.hexdigest(
           OpenSSL::Digest.new('sha1'),
-          ENV['APP_SECRET'],
+          ENV['FACEBOOK_SECRET'],
           payload
         )
 

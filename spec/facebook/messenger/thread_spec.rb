@@ -8,7 +8,7 @@ describe Facebook::Messenger::Profile do
   end
 
   before do
-    ENV['ACCESS_TOKEN'] = access_token
+    ENV['FACEBOOK_ACCESS_TOKEN'] = access_token
   end
 
   describe '.set' do
