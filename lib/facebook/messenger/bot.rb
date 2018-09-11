@@ -43,7 +43,7 @@ module Facebook
         # Returns a String describing the message ID if the message was sent,
         # or raises an exception if it was not.
         def deliver(message, access_token:)
-          puts "In deliver method"
+          puts "#{message}" rescue ''
           response = post '/messages',
                           body: JSON.dump(message),
                           format: :json,
@@ -83,7 +83,7 @@ module Facebook
         # @return pass event and object of callback class to trigger function.
         #
         def receive(payload)
-          puts "In recieve method"
+          puts "#{payload}" rescue ''
           callback = Facebook::Messenger::Incoming.parse(payload)
           event = Facebook::Messenger::Incoming::EVENTS.invert[callback.class]
           trigger(event.to_sym, callback)
